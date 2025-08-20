@@ -1,1 +1,1 @@
-# Metin2Tel
+# Metin2tel-demo.apk 
