@@ -29,3 +29,28 @@ game28.dta
 
 # Log files
 warnings.log
+name: Export Android APK (Godot 4 – CH + Shop demo)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export with Godot
+        uses: firebelley/godot-export@v6
+        with:
+          godot-version: '4.3'
+          export-template: true
+          export-project: true
+          export-debug: true
+          relative-project-path: '.'
+          export-preset: 'Android'
+          cache: true
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: metin2tel-g4-chshop.apk
+          path: builds/android/*.apk
